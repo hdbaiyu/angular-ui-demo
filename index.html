@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-cn" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>angular-1.0</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="stylesheet" href="dist/tqqStyle.css">
+    <base href="/">
+</head>
+<body>
+<div class="menu">
+    <a ui-sref="pageOne">跳到第一个页面</a>
+    <a ui-sref="pageTwo">跳到第二个页面</a>
+    <a ui-sref="pageThree">跳到第三个页面</a>
+</div>
+<div class="height-all" ui-view></div>
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="node_modules/angular/angular.js"></script>
+<script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="dist/my.js"></script>
+</body>
+</html>

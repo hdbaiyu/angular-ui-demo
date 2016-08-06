@@ -1,0 +1,30 @@
+{
+  "name": "angular-ui-roterr demo",
+  "version": "1.0.0",
+  "description": "使用node,angula 和ui-router 搭建的去地址栏地#号的单页面应用",
+  "main": "app.js",
+  "scripts": {
+   "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hdbaiyu/angular-ui-demo"
+  },
+  "keywords": [
+    "node",
+    "angular",
+    "ui-router",
+    "后台管理"
+  ],
+  "author": "baiyu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tangqq/angular-CMS/issues"
+  },
+  "homepage": "http://7788709.com",
+  "dependencies": {
+    "node": "^0.1.2"
+  },
+  "devDependencies": {
+  }
+}
