@@ -31,16 +31,16 @@ h3{line-height: 60px;pageing:10px 0}
     font-size:30px;
     padding-top: 50px;
 }
-.page-one{
-    background: #8eff34;
-    color: #fff
-}
-.page-two{
+.Home{
     background: #62cfff;
     color: #fff
 }
+.page-two{
+    background: #a0b0b0;
+    color: #fff
+}
 .page-three{
-    background: #ff1f30;
+    background: #5e5e5e;
     color: #fff
 }
 .text-center{

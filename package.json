@@ -4,7 +4,7 @@
   "description": "使用node,angula 和ui-router 搭建的去地址栏地#号的单页面应用",
   "main": "app.js",
   "scripts": {
-   "start": "node app.js"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -19,12 +19,14 @@
   "author": "baiyu",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/tangqq/angular-CMS/issues"
+    "url": "https://github.com/hdbaiyu/angular-ui-demo/issues"
   },
   "homepage": "http://7788709.com",
   "dependencies": {
-    "node": "^0.1.2"
+    "express":"^4.14.0",
+    "log4js": "^0.6.38",
+    "node": "^0.1.2",
+    "semver": "^5.3.0"
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }

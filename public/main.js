@@ -24,11 +24,12 @@ app.config(["$stateProvider", "$urlRouterProvider", "$locationProvider", functio
       .state('one',{
          url:'/one',
          templateUrl:'/one/page.html',
-         controller:'pageCtol'
+         controller:'Home'
      })
      .state('two',{
          url:'/two',
          templateUrl:'/two/page.html',
+          controller:'twoCtol',
          resolve: {
 
         //这个函数的值会被直接返回，因为它不是数据保证
@@ -59,7 +60,7 @@ app.config(["$stateProvider", "$urlRouterProvider", "$locationProvider", functio
  * Created by Administrator on 2016/6/7.
  */
 
-app.controller('pageCtol',function($scope,$http,$state){
+app.controller('Home',function($scope,$http,$state){
     $http({
         url:'/indexPage',
         method:'GET'

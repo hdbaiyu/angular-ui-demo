@@ -16,7 +16,7 @@ exports.index = function(req, res) {
 exports.indexPage = function(req, res) {
   var data ={
     'name':'Baiyu',
-    'email': 'baiyu@qq.com',
+    'email': 'baiyu@tenxcloud.com',
     'age': '25',
     'size':'168cm',
     'income':'1000000'
