@@ -5,19 +5,7 @@
 
 // Defaults to INFO for development purpose
 var level = "INFO";
-// Read log level from command line
-// process.argv.forEach(function(arg, i, argv) {
-//   var logKey = "--log-level=";
-//   if (arg.indexOf(logKey) > -1) {
-//     argLevel = arg.substring(logKey.length,arg.length).trim();
-//   }
-//   if (arg === "--dev-mode") {
-//     global.DEV_MODE = true;
-//   }
-// });
 
-// log4js will validate the log level
-// Use the logger
 
 /**
  * Module dependencies.
@@ -29,7 +17,6 @@ var router = require('./routes');
 
 
 //override console functions to provide date/time information in the logs and to put console.log to stderr instead of stdout
-var console_log = console.log;
 
 var console_error = console.error;
 console.error = function(){
@@ -79,14 +66,12 @@ app.set('view engine', 'html');
 app.engine('html', require('ejs-mate-var'));
 
 
-app.get('/', router.index);
+app.get('/', router.home);
 
-
-app.get('/one', router.index);
+app.get('/home', router.home);
 app.get('/two', router.two);
 app.get('/three', router.three);
 app.get('/404', router.error);
-app.get('/indexPage', router.indexPage);
 
 
 // Handle 404

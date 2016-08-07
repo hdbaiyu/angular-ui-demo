@@ -1,11 +1,12 @@
 /**
- * Created by Administrator on 2016/10.1.
+ * Created by Administrator on 2016/8/6.
+ * author Baiyu
  */
  var app = angular.module('myApp',['ui.router']);
 app.config(["$stateProvider", "$urlRouterProvider", "$locationProvider", function($stateProvider,$urlRouterProvider, $locationProvider){
     $urlRouterProvider.otherwise('/index.html');
-    $urlRouterProvider.when('/','one');
-    $urlRouterProvider.when('/one/','one');
+    $urlRouterProvider.when('/','home');
+    $urlRouterProvider.when('/home/','home');
     $urlRouterProvider.when('/two/','two');
     $urlRouterProvider.when('/three/','three');
     //..省略代码
@@ -21,8 +22,8 @@ app.config(["$stateProvider", "$urlRouterProvider", "$locationProvider", functio
          template:'<div class="text-center"><h1>页面不存在404！</h1>' +
       '<div class="text-center"><a ui-sref="pageOne">跳转到首页</a></div></div>'
      })
-      .state('one',{
-         url:'/one',
+      .state('home',{
+         url:'/home',
          templateUrl:'/one/page.html',
          controller:'Home'
      })
@@ -60,17 +61,18 @@ app.config(["$stateProvider", "$urlRouterProvider", "$locationProvider", functio
  * Created by Administrator on 2016/6/7.
  */
 
-app.controller('Home',function($scope,$http,$state){
+app.controller('Home',function($scope,$http){
     $http({
-        url:'/indexPage',
-        method:'GET'
+        url:'/home',
+        method:'GET',
+        params:{type:'ajax'}
     }).then(function mySuccess(response){
         console.log(JSON.stringify(response.data,null,2))
         $scope.data = response.data;
     })
 
 });
-app.controller('twoCtol',function($scope,$http,$state){
+app.controller('twoCtol',function($scope,$http){
     // $http({
     //     url:'/indexPage',
     //     method:'GET'
@@ -81,7 +83,7 @@ app.controller('twoCtol',function($scope,$http,$state){
 
 
 });
-app.controller('threeCtor',function($scope,$http,$state){
+app.controller('threeCtor',function($scope,$http){
     console.log('three page')
 
 });

@@ -23,7 +23,7 @@
   },
   "homepage": "http://7788709.com",
   "dependencies": {
-    "express":"^4.14.0",
+    "express":"^4.13.1",
     "log4js": "^0.6.38",
     "node": "^0.1.2",
     "semver": "^5.3.0"
