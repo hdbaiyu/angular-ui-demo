@@ -1,19 +1,20 @@
 /*
 * Licensed Materials - Property of tenxcloud.com
-* (C) Copyright 2015 TenxCloud. All Rights Reserved.
+* (C) Copyright 201 hdbaiyu. All Rights Reserved.
 */
 
-// Defaults to INFO for development purpose
-var level = "INFO";
+'use strict'
+let level = "INFO";
 
 
 /**
  * Module dependencies.
  */
-var express = require('express');
-var http = require('http');
-var path = require('path');
-var router = require('./routes');
+const express = require('express');
+const http = require('http');
+const path = require('path');
+const router = require('./routes');
+const fs = require('fs')
 
 
 //override console functions to provide date/time information in the logs and to put console.log to stderr instead of stdout
@@ -35,21 +36,10 @@ console.info = function(){
 };
 
 
-/**
- * TODO: Add alert
- *
- * Catch unexpected exceptions.  If we hit one, log it
- * and mark the server as down
- */
-// process.on('uncaughtException', function (err) {
-//   var method = "uncaughtException";
-//   //serverDown = true;
-//   logger.error(method, 'Unexpected exception: ' + err);
-//   logger.error(method, 'Unexpected exception stack: ' + err.stack);
-// });
 
-var favicon = require('express-favicon')
-var app = express();
+const favicon = require('express-favicon')
+const app = express();
+
 
 app.use(express.static(path.join(__dirname, 'public')));
 global.VIEWSPATH = 'public';
@@ -74,21 +64,6 @@ app.get('/three', router.three);
 app.get('/404', router.error);
 
 
-// Handle 404
-app.use(function (req, res) {
-  res.status(404);
-  res.render('error/index', {code: 404, title: "您访问的页面不存在", loginUser : req.user});
-});
-// Handle 500
-app.use(function (req, res) {
-  res.status(500);
-  res.render('error/index', {code: 500, title: "服务器异常，请稍候重试", loginUser : req.user});
-});
-// Handle 503
-app.use(function (req, res) {
-  res.status(503);
-  res.render('error/index', {code: 503, title: "服务不可用，请稍候重试", loginUser : req.user});
-});
 
 http.createServer(app).listen(app.get('port'), app.get('host'), function(){
   console.info('Starting http server');
