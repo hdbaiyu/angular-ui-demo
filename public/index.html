@@ -1,24 +1,38 @@
 <!DOCTYPE html>
 <html lang="zh-cn" data-ng-app="myApp">
 <head>
-    <meta charset="UTF-8">
-    <title>雨滴</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <link rel="stylesheet" href="/css/main.css">
-    <base href="/">
+	<meta charset="UTF-8">
+	<script src="/js/angular.js"></script>
+	<script src="/js/angular-ui-router.min.js"></script>
+	<script src="/js/angular-aria.min.js"></script>
+	<script src="/js/angular-animate.min.js"></script>
+	<script src="/js/angular-material.min.js"></script>
+	<script src="/main.js"></script>
+	<title>{{title}}</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<link rel="stylesheet" type="" href="/css/angular-material.min.css">
+	<link rel="stylesheet" href="/css/main.css">
+	<link href="http://cdn.bootcss.com/bootstrap/4.0.0-alpha/css/bootstrap.min.css" rel="stylesheet">
+	<base href="/">
 </head>
+
 <body>
-<div class="menu">
-    <a ui-sref="home">跳到第一个页面</a>
-    <a ui-sref="two">跳到第二个页面</a>
-    <a ui-sref="three">跳到第三个页面</a>
-</div>
-<div class="height-all" ui-view></div>
-<script src="/js/jquery.min.js"></script>
-<script src="/js/angular.js"></script>
-<script src="/js/angular-ui-router.min.js"></script>
-<script src="/main.js"></script>
+	<div class="menu">
+		<a ui-sref="home">跳到第一个页面</a>
+		<a ui-sref="two">跳到第二个页面</a>
+		<a ui-sref="three">跳到第三个页面</a>
+		<a ui-sref="login">登录</a>
+		<a ui-sref="register">注册</a>
+	</div>
+	<div class="height-all" ui-view>
+		<div>
+			not pages
+		</div>
+
+	</div>
+	<!--<script src="/js/jquery.min.js"></script>-->
 </body>
+
 </html>

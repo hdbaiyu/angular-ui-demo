@@ -1,0 +1,10 @@
+
+    <form ng-submit="goRegister()" class="text-center">
+      <p>Fill in the form below to sign up!</p>
+      <h1>{{title}}</h1>
+      <p><input type="text" ng-model="user" name="user" placeholder="UserName"></p>
+      <p><input type="password" ng-model="password" name="password" placeholder="UserPassword"></p>
+      <p><input type="submit" class="btn btn-primary" value="提交"></p>
+      <md-button ng-click="goRegister()" class="md-raised">Button</md-button>
+      <p>{{errText}}</p>
+    </form>

@@ -13,7 +13,7 @@ var util = require('../services/requestUtils.js');
 exports.home = function(req, res) {
   var reqData = req.query;
   console.log('ajax',reqData);
-  if (reqData && reqData.type == 'ajax') {
+  if (reqData.type == 'ajax') {
       var data = {
     'name':'Baiyu',
     'email': 'baiyu@tenxcloud.com',
@@ -47,3 +47,19 @@ exports.three = function(req, res) {
 exports.error = function(req, res) {
   res.sendfile('public/index.html');
 };
+
+exports.loading = function(req, res) {
+  res.sendfile('public/loading/index')
+}
+
+exports.registerForm = function(req, res) {
+  res.sendfile('public/index.html')
+}
+exports.registerSubmit = function (req, res) {
+  console.log('req.',req.body);
+  console.log('req.',req.body.password);
+}
+
+exports.loginForm = function (req, res) {
+ res.sendfile('public/index.html')
+}
