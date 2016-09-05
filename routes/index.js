@@ -56,7 +56,7 @@ exports.registerForm = function(req, res) {
   res.sendfile('public/index.html')
 }
 exports.registerSubmit = function (req, res) {
-  console.log('req.',req.body);
+  console.log('req.query',req.body.user);
   console.log('req.',req.body.password);
 }
 

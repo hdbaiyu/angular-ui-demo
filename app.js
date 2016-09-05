@@ -16,7 +16,7 @@ const path = require('path');
 const router = require('./routes');
 const fs = require('fs')
 const config = require('./config');
-
+const bodyParser = require('body-parser');
 //override console functions to provide date/time information in the logs and to put console.log to stderr instead of stdout
 
 var console_error = console.error;
@@ -40,6 +40,10 @@ console.info = function(){
 const favicon = require('express-favicon')
 const app = express();
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 
 app.use(express.static(path.join(__dirname, 'public')));
 global.VIEWSPATH = 'public';

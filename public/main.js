@@ -107,6 +107,8 @@ app.controller('regCtor', function ($scope, $http) {
       url:'/register',
       method: 'POST',
       data: data,
+      contentType: 'application/json',
+      dataType: 'json'
     }).then(function mySucces(success){
       $scope.errText = '注册成功';
       console.log(JSON.stringify(success,null,2))
