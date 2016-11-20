@@ -87,7 +87,7 @@ app.controller('threeCtor', function ($scope, $http) {
   console.log('three page')
 
 });
-app.controller('regCtor', function ($scope, $http) {
+app.controller('regCtor', function ($scope, $http, $state) {
   $scope.title = '注册';
   $scope.goRegister = function() {
     if ($scope.user == undefined || $scope.user.length < 5) {
@@ -112,7 +112,7 @@ app.controller('regCtor', function ($scope, $http) {
     }).then(function mySucces(success){
       $scope.errText = '注册成功';
       console.log(JSON.stringify(success,null,2))
-      
+      $state.go('login',{data: success.data})
     }, function myError(){
        $scope.errText = '注册失败！';
     })
@@ -122,12 +122,12 @@ app.controller('regCtor', function ($scope, $http) {
 app.controller('loginCtor', function ($scope, $http) {
   $scope.title = '登录';
   $scope.goLogin = function() {
-    if ($scope.user =='' || $scope.user.length < 5) {
+    if ($scope.user == undefined || $scope.user.length < 5) {
       $scope.errText = '用户名不能为空，或不能少于5个长度';
       return;
     }
-    if ($scope.password =='' || $scope.user.length < 6) {
-      $scope.errText = '密码不能为空，或不能少于6个长度';
+    if ($scope.password == undefined) {
+      $scope.errText = '密码不能为空';
       return;
     }
     var data = {
@@ -140,7 +140,7 @@ app.controller('loginCtor', function ($scope, $http) {
       data: data
     }).then(function mySuccess(success){
       $scope.errText = '登录成功';
-      console.log(JSON.stringify(success,null,2))
+      console.log(JSON.stringify(success.data.status,null,2))
       
     }, function myError(){
        $scope.errText = '账号或密码不正确！';

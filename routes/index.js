@@ -2,16 +2,17 @@
 * Licensed Materials - Property of tenxcloud.com
 * (C) Copyright 2014 TenX Cloud. All Rights Reserved.
 */
-
-
-var util = require('../services/requestUtils.js');
+'use strict';
+const uuid   = require("node-uuid");
+const util = require('../services/requestUtils.js');
+const db = require('../database/user');
 // var logger = require('../services/loggerUtil.js').getLogger("message");
 
 /*
  * GET home page.
  */
 exports.home = function(req, res) {
-  var reqData = req.query;
+  let reqData = req.query;
   console.log('ajax',reqData);
   if (reqData.type == 'ajax') {
       var data = {
@@ -56,10 +57,34 @@ exports.registerForm = function(req, res) {
   res.sendfile('public/index.html')
 }
 exports.registerSubmit = function (req, res) {
-  console.log('req.query',req.body.user);
-  console.log('req.',req.body.password);
+  let data = req.body;
+  let method = 'register';
+  console.log('database',JSON.stringify(db,null,2));
+ let query = db.query('SELECT name FROM users', function(err, result) {
+      if (err) {
+          connection.release();
+          throw err;
+      } else {
+          connection.release();
+          logger.debug(method, "Result: " + JSON.stringify(result));
+          if (callback) {
+              callback(result);
+          }
+      }
+  });
+  util.okJsonResponse(data, res);
 }
 
 exports.loginForm = function (req, res) {
  res.sendfile('public/index.html')
+}
+
+exports.login = function(req, res) {
+  let data = {status:200,data:req.body}
+  conn.query('SELECT * from user where name="baiyu"', function(err, result) {
+    if (err) throw err;
+    console.log(result);
+  })
+
+  util.okJsonResponse(data, res);
 }

@@ -19,24 +19,6 @@ const config = require('./config');
 const bodyParser = require('body-parser');
 //override console functions to provide date/time information in the logs and to put console.log to stderr instead of stdout
 
-var console_error = console.error;
-console.error = function(){
-  var date = new Date();
-  console_error.apply(console, ['[', date.toLocaleString(), ']'].concat(Array.prototype.slice.call(arguments)));
-};
-var console_warn = console.warn;
-console.warn = function(){
-  var date = new Date();
-  console_warn.apply(console, ['[', date.toLocaleString(), ']'].concat(Array.prototype.slice.call(arguments)));
-};
-var console_info = console.info;
-console.info = function(){
-  var date = new Date();
-  console_info.apply(console, ['[', date.toLocaleString(), ']'].concat(Array.prototype.slice.call(arguments)));
-};
-
-
-
 const favicon = require('express-favicon')
 const app = express();
 
@@ -50,8 +32,6 @@ global.VIEWSPATH = 'public';
 
 app.use(favicon(path.join(__dirname, '/public/images/favicon.jpg')))
 // global.VIEWSPATH = 'views';
-
-
 
 app.set('port', config.port);
 app.set('host', config.host);
@@ -70,7 +50,7 @@ app.get('/loading',router.loading)
 app.get('/register',router.registerForm)
 app.post('/register',router.registerSubmit)
 app.get('/login',router.loginForm)
-
+app.post('/login',router.login)
 http.createServer(app).listen(app.get('port'), app.get('host'), function(){
   console.info('Starting http server');
   console.info(app.get('host') + ': server listening on port ' + app.get('port'));

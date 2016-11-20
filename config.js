@@ -6,7 +6,7 @@ const config = {
     database:'ngblog',
     port: 3306
   },
-  port:6000,
+  port:5000,
   host: '0.0.0.0',
   staging: false,
   // debug 为 true 时，用于本地调试，deprecated
